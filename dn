@@ -1,0 +1,8 @@
+#!/bin/bash
+mkdir $1
+cp utils/solve.py $1/
+echo \#!/usr/bin/expect -f >> $1/login.sh
+echo spawn ssh $1@pwnable.kr -p2222 >> $1/login.sh
+cat utils/login.sh >> $1/login.sh
+chmod 777 $1/login.sh
+./utils/download $1

@@ -1,0 +1,8 @@
+#!/usr/bin/expect -f
+set usr [lindex $argv 0] 
+spawn scp -P 2222  $usr@pwnable.kr:*  ./$usr/
+# expect "yes"
+# send "yes\n"
+expect "pass"
+send "guest\n"
+interact
